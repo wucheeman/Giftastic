@@ -1,0 +1,54 @@
+TEST TEMPLATE - GIFTASTIC
+
+d = deferred
+e = met by enhancement
+p = passed
+w = waiting for further work
+
+Requirements
+============
+version 1:
+[] query URL is https
+[] app creates a set of buttons in the HTML
+[] when clicked, page gets 10 static gifs from GIPHY and places them on the page
+[] when a static image is clicked, it animates.
+[] when an animated image is clicked, it stops playing. (note: it may take a "few" clicks to make this happen)
+[] rating of image (obtained from GIPHY) is displayed under each gig.
+version 2:
+[] All functionality in v1 + ...
+[] form that takes user input and adds new button to the set
+
+
+Bonus
+=====
+[] App is fully mobile responsive
+[] App enables users to add an additional 10 GIFs to page. Original gifs remain on page.
+[] App lists additional metadata for each gif in clean/readable format
+[] App enables 1-click download for each gif across device types.
+[] App is integrated with a second API and data are displayed creatively.
+[] Enable users to add favorite gifs to a 'favorites' section that persists during a single user session. (That is, it does not survive reload.)
+[] Enable favorites to persist across reload.
+
+Functionality
+=============
+[] Game initializes globals correctly
+[] Game reinitializes globals correctly
+[] HTML is generated dynamically
+
+
+Display
+=======
+[] Add specific behaviors from demo video
+[] Page closely resembles demo video
+
+
+GitHub Pages
+============
+[] Page performs on load as expected
+[] Page performs after reload as expected
+
+Cleanup
+=======
+[] HTML validates
+[] CSS validates
+[] JS delinted (stretch)
