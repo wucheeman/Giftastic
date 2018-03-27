@@ -13,7 +13,7 @@ version 1:
 [] when clicked, page gets 10 static gifs from GIPHY and places them on the page
 [] when a static image is clicked, it animates.
 [] when an animated image is clicked, it stops playing. (note: it may take a "few" clicks to make this happen)
-[] rating of image (obtained from GIPHY) is displayed under each gig.
+[] rating of image (obtained from GIPHY) is displayed under each gif.
 version 2:
 [] All functionality in v1 + ...
 [] form that takes user input and adds new button to the set
