@@ -11,10 +11,11 @@ let activities;
 // FUNCTIONS
 // ==============================================================
 const clickHandler = (e) => {
-  // if click in on button, passes 'e' to getGifs
+  // if click on button, passes 'e' to getGifs
   // if on Gif, calls toggleGifs
   // else logs (for now) and does nothing
   console.log("in clickHandler");
+  console.log(e);
 }
 
 const displayStaticGifs = () => {
@@ -51,14 +52,14 @@ const main = () => {
   console.log('Started');
   initializeGlobals();
   initializeDisplay();
-  console.log('Ended');
+  $(document).on("click", clickHandler);
 }
 
 const makeButtons = () => {
   var message = 0;
   var buttons = [];
   for (var i = 0; i < 2; i++ ) {
-    var button = `<button class="activity" id=${activities[i]}>Running</button>`;
+    var button = `<button class="activity" id=${activities[i]}>${activities[i]}</button>`;
     buttons.push(button);
   }
   return buttons;
