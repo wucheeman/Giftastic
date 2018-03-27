@@ -49,7 +49,6 @@ const main = () => {
   // initializes globals and display
   // enables app by calling $(document).on("click", clickHandler); to start processing
   console.log('Started');
-  // tempFunc();
   initializeGlobals();
   initializeDisplay();
   console.log('Ended');
@@ -75,9 +74,10 @@ const processResponse = (response) => {
 }
 
 const render = (message, location) => {
+  // updates screen at location with contents of message
   console.log("in render");
   for (i = 0; i < message.length; i++) {
-    $("#button-land").append(message[i]);
+    $(location).append(message[i]);
   }
 }
 
@@ -96,17 +96,6 @@ function search(search) {
         )
       });
     });
-}
-
-const tempFunc = () => {
-  // TODO remove when this early test is no longer needed
-  var buttonLand = $("#button-land");
-  buttonLand.html("<h3>This is where the buttons go</h3>");
-
-  var gifyLand = $("#gify-land");
-  gifyLand.html("<h3>This is where the gifs go </h3>");
-
-  search('sneezing');
 }
 
 const toggleGif = () => {
