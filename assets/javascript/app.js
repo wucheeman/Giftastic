@@ -39,14 +39,30 @@ const initializeDisplay = () => {
   // buttons share class 'activity' and have id=array item name
   // buttons not associated with gifs yet
   // calls render to drive display (?)
+
+  // TODO: make fully dynamic and putting up buttons for all activities
+  var message = makeButtons();
+  render(message, "#button-land");
 }
 
 const main = () => {
   // initializes globals and display
   // enables app by calling $(document).on("click", clickHandler); to start processing
   console.log('Started');
-  tempFunc();
+  // tempFunc();
+  initializeGlobals();
+  initializeDisplay();
   console.log('Ended');
+}
+
+const makeButtons = () => {
+  var message = 0;
+  var buttons = [];
+  for (var i = 0; i < 2; i++ ) {
+    var button = `<button class="activity" id=${activities[i]}>Running</button>`;
+    buttons.push(button);
+  }
+  return buttons;
 }
 
 const processResponse = (response) => {
@@ -56,6 +72,13 @@ const processResponse = (response) => {
   // dimension 1 has indexVal (which can be used as an ID), static image and animated image
   // dimension 2 has dimension 1 arrays in order of activities
   console.log("in processResponse()");
+}
+
+const render = (message, location) => {
+  console.log("in render");
+  for (i = 0; i < message.length; i++) {
+    $("#button-land").append(message[i]);
+  }
 }
 
 function search(search) {
@@ -76,7 +99,7 @@ function search(search) {
 }
 
 const tempFunc = () => {
-  // TODO when this early test is no longer needed
+  // TODO remove when this early test is no longer needed
   var buttonLand = $("#button-land");
   buttonLand.html("<h3>This is where the buttons go</h3>");
 
