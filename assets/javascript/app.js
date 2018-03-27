@@ -15,14 +15,28 @@ const clickHandler = (e) => {
   // if on Gif, calls toggleGifs
   // else logs (for now) and does nothing
   console.log("in clickHandler");
+  console.log(e.target);
+  // maybe brittle?
   console.log(e);
+  if (e.target.className === 'activity') {
+    console.log('found a button!');
+    // call api and display the gifs
+    console.log(e.target.id);
+    search(e.target.id);
+  }
+  else {
+    console.log('not supposed to get here in clickHandler');
+
+  }
 }
 
+// TODO
 const displayStaticGifs = () => {
-  // interates through array created by processResponse 10 static images
+  // interates through array created by processResponse 10 static images and sends them to render
   console.log("in displayGifs()");
 }
 
+// TODO
 const getGifs = (e) => {
   // receives event from click
   // checks to see if we already have the GiFs; if yes, call displayStaticGifs
@@ -83,6 +97,7 @@ const render = (message, location) => {
 }
 
 function search(search) {
+  console.log("in search");
   var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&q=" + search;
 
     $.ajax({
@@ -99,6 +114,7 @@ function search(search) {
     });
 }
 
+// TODO
 const toggleGif = () => {
   // toggles gif between static image and animated when gif is clicked
   console.log("in toggleGif");
