@@ -89,11 +89,13 @@ const processResponse = (response) => {
   var message = [];
   // just handles animated gifs for now
   for (var i = 0; i < 10; i++) {
-    //var newGif = response.data[i].images.original.url
-    var newHTML = `<img src="${response.data[i].images.original.url}">`;
+
+    var newHTML = `<img src="${response.data[i].images.fixed_height_still.url}">`;
+    // brings in original size/dyanmic GIF
+    //var newHTML = `<img src="${response.data[i].images.original.url}">`;
     message.push(newHTML);
   }
-  // TODO: update 'action'
+  // TODO: update 'action' ?
   render(message, "#gify-land", "empty");
 }
 
