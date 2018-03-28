@@ -93,12 +93,17 @@ const processResponse = (response) => {
     var newHTML = `<img src="${response.data[i].images.original.url}">`;
     message.push(newHTML);
   }
-  render(message, "#gify-land");
+  render(message, "#gify-land", "empty");
 }
 
-const render = (message, location) => {
-  // updates screen at location with contents of message
+const render = (message, location, action) => {
+  // updates screen at location with contents of message after taking
+  // the action, if one is specified;
   console.log("in render");
+  if (action) {
+    console.log("render has an action to take");
+    $(location).empty();
+  }
   for (i = 0; i < message.length; i++) {
     $(location).append(message[i]);
   }
@@ -113,7 +118,7 @@ function search(search) {
       method: "GET"
     }).then(function(response) {
       console.log(response);
-      // TODO: call processResponse and pass it the response; move functionality below
+      // TODO delete
       // response.data.forEach(function(giphy) {
       //   $("#gify-land").append( // TODO: need to change this out
       //   `<img src="${giphy.images.original.url}">`
