@@ -88,11 +88,12 @@ const processResponse = (response) => {
   console.log("in processResponse()");
   var message = [];
   // just handles animated gifs for now
-  for (var i = 0; i < response.data.length; i++) {
+  for (var i = 0; i < 10; i++) {
     //var newGif = response.data[i].images.original.url
     var newHTML = `<img src="${response.data[i].images.original.url}">`;
     message.push(newHTML);
   }
+  // TODO: update 'action'
   render(message, "#gify-land", "empty");
 }
 
@@ -100,6 +101,8 @@ const render = (message, location, action) => {
   // updates screen at location with contents of message after taking
   // the action, if one is specified;
   console.log("in render");
+  // TODO: change this so it can do something besides empty?
+  // TODO: use different argument type?
   if (action) {
     console.log("render has an action to take");
     $(location).empty();
