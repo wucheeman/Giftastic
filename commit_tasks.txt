@@ -1,12 +1,17 @@
 [x] first pass pseudo code
 [x] add document.ready to make sure document is loaded; confirm query protocol is https
-[] add two buttons dynamically
-[] both buttons retrieve GIFs and app displays animated ones; 
+[x] add two buttons dynamically
+[x] correct labeling bug on buttons
+[x] both buttons retrieve GIFs and app displays animated ones;
+[] change apikey to my own
+[] review week 6 exercise 13 and later (14 is good -- directly on target for the homework.
+[] update search() to move render functionality it to that function 
+[] clear screen of gifs before displaying a fresh batch
 [] app displays static GIFs
 [] app can toggle between static and animated GIFs
 [] app adds buttons for all members of array
 [] app displays GIFs in orderly rows and appropriate size
-[] app displays ratings of GIF
+[] app displays ratings of GIF 
 [] round 1 test results and bug fixes
 [] app provides form for user input and creates new button
 [] app enables new button; retrieves GIFs and displays them appropriately.
