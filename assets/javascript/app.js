@@ -86,6 +86,14 @@ const processResponse = (response) => {
   // dimension 1 has indexVal (which can be used as an ID), static image and animated image
   // dimension 2 has dimension 1 arrays in order of activities
   console.log("in processResponse()");
+  var message = [];
+  // just handles animated gifs for now
+  for (var i = 0; i < response.data.length; i++) {
+    //var newGif = response.data[i].images.original.url
+    var newHTML = `<img src="${response.data[i].images.original.url}">`;
+    message.push(newHTML);
+  }
+  render(message, "#gify-land");
 }
 
 const render = (message, location) => {
@@ -106,11 +114,12 @@ function search(search) {
     }).then(function(response) {
       console.log(response);
       // TODO: call processResponse and pass it the response; move functionality below
-      response.data.forEach(function(giphy) {
-        $("#gify-land").append( // TODO: need to change this out
-        `<img src="${giphy.images.original.url}">`
-        )
-      });
+      // response.data.forEach(function(giphy) {
+      //   $("#gify-land").append( // TODO: need to change this out
+      //   `<img src="${giphy.images.original.url}">`
+      //   )
+      // });
+      processResponse(response);
     });
 }
 
