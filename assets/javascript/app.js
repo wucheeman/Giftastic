@@ -98,7 +98,7 @@ const render = (message, location) => {
 
 function search(search) {
   console.log("in search");
-  var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&q=" + search;
+  var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=2iJQK64mjf8ANz5A14Gtwn09rOBldGhG&q=" + search;
 
     $.ajax({
       url: queryURL,
