@@ -3,12 +3,15 @@
 [x] add two buttons dynamically
 [x] correct labeling bug on buttons
 [x] both buttons retrieve GIFs and app displays animated ones;
-[] change apikey to my own
-[] review week 6 exercise 13 and later (14 is good -- directly on target for the homework.
-[] update search() to move render functionality it to that function 
-[] clear screen of gifs before displaying a fresh batch
-[] app displays static GIFs
-[] app can toggle between static and animated GIFs
+[x] change apikey to my own
+[x] update search() to move render functionality to processResponse and render functions 
+[x] clear screen of gifs before displaying a fresh batch
+[x] app displays 10 GIFs and stops
+[x] app displays static GIFs
+[x] app can toggle between static and animated GIFs
+    (x) move from make_complex...html to app.js
+    (x) correct bug - have to click twice to toggle, rather than once
+    (x) test for all gifs on page
 [] app adds buttons for all members of array
 [] app displays GIFs in orderly rows and appropriate size
 [] app displays ratings of GIF 
@@ -18,3 +21,5 @@
 [] round 2 test results and bug fixes
 
 ----- Assess time remaining; pick bonus tasks and add if feasible ----
+
+[] week 6 exercise 13 and later are good and directly on target for the homework.
