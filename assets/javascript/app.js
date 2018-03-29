@@ -11,12 +11,8 @@ let activities;
 // FUNCTIONS
 // ==============================================================
 const clickHandler = (e) => {
-  // if click on button, passes 'e' to getGifs
-  // if on Gif, calls toggleGifs
-  // else logs (for now) and does nothing
   console.log("in clickHandler");
   console.log(e.target);
-  // maybe brittle?
   console.log(e);
   if (e.target.className === 'activity') {
     console.log('found a button!');
@@ -25,6 +21,7 @@ const clickHandler = (e) => {
     search(e.target.id);
   }
   else if (e.target.className === 'gif'){
+    // TODO: reduce verbosity during cleanup
     const element = $(e.target);
     console.log('in clickHandler: element = ' + element);
     toggleGif(element);
@@ -63,7 +60,7 @@ const main = () => {
 const makeButtons = () => {
   var message = 0;
   var buttons = [];
-  for (var i = 0; i < 2; i++ ) {
+  for (var i = 0; i < activities.length; i++ ) {
     var button = `<button class="activity" id=${activities[i]}>${activities[i]}</button>`;
     buttons.push(button);
   }

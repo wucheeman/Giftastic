@@ -12,7 +12,7 @@
     (x) move from make_complex...html to app.js
     (x) correct bug - have to click twice to toggle, rather than once
     (x) test for all gifs on page
-[] app adds buttons for all members of array
+[x] app adds buttons for all members of array
 [] app displays GIFs in orderly rows and appropriate size
 [] app displays ratings of GIF 
 [] round 1 test results and bug fixes
