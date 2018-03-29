@@ -25,26 +25,14 @@ const clickHandler = (e) => {
     search(e.target.id);
   }
   else if (e.target.className === 'gif'){
-    toggleGif();
+    const element = $(e.target);
+    console.log('in clickHandler: element = ' + element);
+    toggleGif(element);
   }
   else {
     console.log('not supposed to get here in clickHandler');
 
   }
-}
-
-// TODO
-const displayStaticGifs = () => {
-  // interates through array created by processResponse 10 static images and sends them to render
-  console.log("in displayGifs()");
-}
-
-// TODO
-const getGifs = (e) => {
-  // receives event from click
-  // checks to see if we already have the GiFs; if yes, call displayStaticGifs
-  // if no, call search with e.target.id, then processResponse, then displayStaticGifs
-  console.log("in getGifs");
 }
 
 const initializeGlobals = () => {
@@ -91,7 +79,7 @@ const processResponse = (response) => {
   // takes API response object and makes URLs for display on page
   console.log("in processResponse()");
   const message = [];
-  for (var i = 0; i < 1; i++) {
+  for (var i = 0; i < 10; i++) {
     console.log("making URLs");
     const stillURL = response.data[i].images.fixed_height_still.url;
     console.log('stillURL is ' + stillURL);
@@ -103,8 +91,6 @@ const processResponse = (response) => {
   }
   console.log("before calling render, message is" + message);
   render(message, "#gify-land", 'empty');
-  // TODO: move this ?to a more appropriate location
-  //toggleGif();
 }
 
 const render = (message, location, action) => {
@@ -136,16 +122,16 @@ function search(search) {
 }
 
 // TODO
-const toggleGif = () => {
+const toggleGif = (element) => {
   // toggles gif between static image and animated when gif is clicked
   console.log("in toggleGif");
   const STATE_STILL = "still";
   const STATE_ANIMATE = "animate";
         
-  $(".gif").on("click", function() {
-    console.log("in on-click");
-    const element = $(this);
-    console.log(element);
+  // $(".gif").on("click", function() {
+  //   console.log("in ToggleGif's on-click");
+    // const element = $(this);
+    // console.log(element);
     const state = element.attr('data-state');
     console.log("state is now: " + state);
     console.log('the current image source is: ' + element.attr('src'));
@@ -162,7 +148,7 @@ const toggleGif = () => {
       console.log('the image source has changed to be: ' + element.attr('src'));
       element.attr('data-state', STATE_STILL);
     }
-  });
+  // });
 }
 
 // GAME
