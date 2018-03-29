@@ -24,6 +24,9 @@ const clickHandler = (e) => {
     console.log(e.target.id);
     search(e.target.id);
   }
+  else if (e.target.className === 'gif'){
+    toggleGif();
+  }
   else {
     console.log('not supposed to get here in clickHandler');
 
@@ -79,24 +82,29 @@ const makeButtons = () => {
   return buttons;
 }
 
-const processResponse = (response) => {
-  // takes API response object and pulls off animated and static Gifs
-  // puts them in a two-d array that can be accessed by functions building display
-  // maybe an object is better?
-  // dimension 1 has indexVal (which can be used as an ID), static image and animated image
-  // dimension 2 has dimension 1 arrays in order of activities
-  console.log("in processResponse()");
-  var message = [];
-  // just handles animated gifs for now
-  for (var i = 0; i < 10; i++) {
+const makeImageElement = (stillURL, animatedURL) => {
+  const newImageElement = `<img src="${stillURL}" data-still="${stillURL}" data-animate="${animatedURL}" data-state="still" class="gif">`
+  return newImageElement;
+}
 
-    var newHTML = `<img src="${response.data[i].images.fixed_height_still.url}">`;
-    // brings in original size/dyanmic GIF
-    //var newHTML = `<img src="${response.data[i].images.original.url}">`;
+const processResponse = (response) => {
+  // takes API response object and makes URLs for display on page
+  console.log("in processResponse()");
+  const message = [];
+  for (var i = 0; i < 1; i++) {
+    console.log("making URLs");
+    const stillURL = response.data[i].images.fixed_height_still.url;
+    console.log('stillURL is ' + stillURL);
+    const animatedURL = response.data[i].images.fixed_height.url;
+    console.log("animatedURL is " + animatedURL);
+    const newHTML = makeImageElement(stillURL, animatedURL);
+    console.log("newHTML is " + newHTML);
     message.push(newHTML);
   }
-  // TODO: update 'action' ?
-  render(message, "#gify-land", "empty");
+  console.log("before calling render, message is" + message);
+  render(message, "#gify-land", 'empty');
+  // TODO: move this ?to a more appropriate location
+  //toggleGif();
 }
 
 const render = (message, location, action) => {
@@ -123,12 +131,6 @@ function search(search) {
       method: "GET"
     }).then(function(response) {
       console.log(response);
-      // TODO delete
-      // response.data.forEach(function(giphy) {
-      //   $("#gify-land").append( // TODO: need to change this out
-      //   `<img src="${giphy.images.original.url}">`
-      //   )
-      // });
       processResponse(response);
     });
 }
@@ -137,6 +139,30 @@ function search(search) {
 const toggleGif = () => {
   // toggles gif between static image and animated when gif is clicked
   console.log("in toggleGif");
+  const STATE_STILL = "still";
+  const STATE_ANIMATE = "animate";
+        
+  $(".gif").on("click", function() {
+    console.log("in on-click");
+    const element = $(this);
+    console.log(element);
+    const state = element.attr('data-state');
+    console.log("state is now: " + state);
+    console.log('the current image source is: ' + element.attr('src'));
+
+    if (state === STATE_STILL) {
+      console.log("toggling to animation");
+      element.attr('src', element.attr('data-animate'));
+      console.log('the image source has changed to be: ' + element.attr('src'));
+      element.attr('data-state', STATE_ANIMATE);
+      console.log("should be animated now");
+    } else {
+      console.log("toggling to still image");
+      element.attr('src', element.attr('data-still'));
+      console.log('the image source has changed to be: ' + element.attr('src'));
+      element.attr('data-state', STATE_STILL);
+    }
+  });
 }
 
 // GAME
