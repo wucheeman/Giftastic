@@ -13,10 +13,10 @@
     (x) correct bug - have to click twice to toggle, rather than once
     (x) test for all gifs on page
 [x] app adds buttons for all members of array
-[-] app displays GIFs in orderly rows and appropriate size
+[x] app displays GIFs in orderly rows and appropriate size
     (x) first pass
-    () cleaned up
-[] app displays ratings of GIF 
+    (x) cleaned up
+[x] app displays ratings of GIF 
 [] round 1 test results and bug fixes
 [] app provides form for user input and creates new button
 [] app enables new button; retrieves GIFs and displays them appropriately.

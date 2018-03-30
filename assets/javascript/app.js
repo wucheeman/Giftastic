@@ -39,8 +39,8 @@ const initializeGlobals = () => {
 const initializeDisplay = () => {
   // lays out buttons using the activities array
   // TODO: in v2, adds form for additional buttons
-  var message = makeButtons();
-  render(message, "#button-land");
+  var imgElements = makeButtons();
+  render(imgElements, "#button-land");
 }
 
 const main = () => {
@@ -53,7 +53,7 @@ const main = () => {
 }
 
 const makeButtons = () => {
-  var message = 0;
+  var imgElements = 0;
   var buttons = [];
   for (var i = 0; i < activities.length; i++ ) {
     var button = `<button class="activity" id=${activities[i]}>${activities[i]}</button>`;
@@ -67,27 +67,38 @@ const makeImageElement = (stillURL, animatedURL) => {
   return newImageElement;
 }
 
+const makeRatingElement = (rating) => {
+  return `<p>Rating: ${rating}</p>`;
+}
+
 const processResponse = (response) => {
   // takes API response object and makes URLs for display on page
   console.log("in processResponse()");
-  let message = [];
+  let imgElements = [];
+  let ratingsElements = [];
   for (var i = 0; i < 10; i++) {
     console.log("making URLs");
     const stillURL = response.data[i].images.fixed_height_still.url;
     console.log('stillURL is ' + stillURL);
     const animatedURL = response.data[i].images.fixed_height.url;
     console.log("animatedURL is " + animatedURL);
-    const newHTML = makeImageElement(stillURL, animatedURL);
-    console.log("newHTML is " + newHTML);
-    message.push(newHTML);
+    const newImageHtml = makeImageElement(stillURL, animatedURL);
+    console.log("newImageHtml is " + newImageHtml);
+    imgElements.push(newImageHtml);
+    const rating = response.data[i].rating;
+    console.log('rating is: ' + rating);
+    const newRatingElement = makeRatingElement(rating);
+    console.log("new rating element is " + newRatingElement);
+    ratingsElements.push(newRatingElement);
   }
-  message = makeImageDisplay(message);
-  console.log("before calling render, message is" + message);
-  render(message, "#gify-land", 'empty');
+  // add ratingsElements to display; requires work in image_display.js
+  imgElements = makeImageDisplay(imgElements, ratingsElements);
+  console.log("before calling render, imgElements is" + imgElements);
+  render(imgElements, "#gify-land", 'empty');
 }
 
-const render = (message, location, action) => {
-  // updates screen at location with contents of message after taking
+const render = (imgElements, location, action) => {
+  // updates screen at location with contents of imgElements after taking
   // the action, if one is specified;
   console.log("in render");
   // TODO: change this so it can do something besides empty?
@@ -96,8 +107,8 @@ const render = (message, location, action) => {
     console.log("render has an action to take");
     $(location).empty();
   }
-  for (i = 0; i < message.length; i++) {
-    $(location).append(message[i]);
+  for (i = 0; i < imgElements.length; i++) {
+    $(location).append(imgElements[i]);
   }
 }
 
