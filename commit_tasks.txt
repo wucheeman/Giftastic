@@ -22,6 +22,7 @@
 [] app enables new button; retrieves GIFs and displays them appropriately.
 [] round 2 test results and bug fixes
 [] beautify page to match homework demos
+    () gutters between all images
 
 ----- Assess time remaining; pick bonus tasks and add if feasible ----
 

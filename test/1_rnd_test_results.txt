@@ -8,13 +8,13 @@ w = waiting for further work
 Requirements
 ============
 version 1:
-[] query URL is https
-[] app creates a set of buttons in the HTML
-[] when clicked, page gets 10 static gifs from GIPHY and places them on the page
-[] when a static image is clicked, it animates.
-[] when an animated image is clicked, it stops playing. (note: it may take a "few" clicks to make this happen)
-[] rating of image (obtained from GIPHY) is displayed above each gif.
-[] all buttons behave as expected
+[p] query URL is https
+[p] app creates a set of buttons in the HTML
+[p] when clicked, page gets 10 static gifs from GIPHY and places them on the page
+[p] when a static image is clicked, it animates.
+[p] when an animated image is clicked, it stops playing. (note: it may take a "few" clicks to make this happen)
+[p] rating of image (obtained from GIPHY) is displayed above each gif.
+[p] all buttons behave as expected
 
 version 2:
 [] All functionality in v1 + ...
@@ -33,9 +33,9 @@ Bonus
 
 Functionality
 =============
-[] Game initializes globals correctly
-[] Game reinitializes globals correctly
-[] Correct HTML is generated dynamically
+[p] Game initializes globals correctly
+[p] Game reinitializes globals correctly
+[p] Correct HTML is generated dynamically
 
 version 2 additional functionality
 [] Empty strings or repeats aren't added to the array of buttons
@@ -45,16 +45,16 @@ version 2 additional functionality
 
 Display
 =======
-[] Page closely resembles demo video
+[w] Page closely resembles demo video
 
 
 GitHub Pages
 ============
-[] Page performs on load as expected
-[] Page performs after reload as expected
+[w] Page performs on load as expected
+[w] Page performs after reload as expected
 
 Cleanup
 =======
-[] HTML validates
-[] CSS validates
-[] JS delinted (stretch)
+[w] HTML validates
+[w] CSS validates
+[w] JS delinted (stretch)
