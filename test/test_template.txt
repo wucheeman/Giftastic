@@ -14,6 +14,7 @@ version 1:
 [] when a static image is clicked, it animates.
 [] when an animated image is clicked, it stops playing. (note: it may take a "few" clicks to make this happen)
 [] rating of image (obtained from GIPHY) is displayed under each gif.
+
 version 2:
 [] All functionality in v1 + ...
 [] form that takes user input and adds new button to the set
@@ -33,12 +34,16 @@ Functionality
 =============
 [] Game initializes globals correctly
 [] Game reinitializes globals correctly
-[] HTML is generated dynamically
+[] Correct HTML is generated dynamically
+
+version 2 additional functionality
+[] Empty strings or repeats aren't added to the array of buttons
+[] Leading/trailing whitespace is removed from user input
+[] User input normalized to lower case (title case?)
 
 
 Display
 =======
-[] Add specific behaviors from demo video
 [] Page closely resembles demo video
 
 
