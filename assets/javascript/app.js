@@ -33,17 +33,12 @@ const clickHandler = (e) => {
 }
 
 const initializeGlobals = () => {
-  activities = ['sleeping', 'studying', 'eating', 'drinking', 'walking', 'running', 'swimming', 'flying', 'driving', 'listening', 'thinking', 'sneezing', 'coughing', 'disagreeing', 'diving', 'studying', 'sking', 'sledding', 'climbing'];
+  activities = ['sleeping', 'studying', 'eating', 'drinking', 'walking', 'running', 'swimming', 'flying', 'driving', 'listening', 'thinking', 'sneezing', 'coughing', 'disagreeing', 'diving', 'sking', 'sledding', 'climbing'];
 }
 
 const initializeDisplay = () => {
-  // TODO: lays out buttons using the activities array
-  // creates buttons using template syntax
-  // buttons share class 'activity' and have id=array item name
-  // buttons not associated with gifs yet
-  // calls render to drive display (?)
-
-  // TODO: make fully dynamic and putting up buttons for all activities
+  // lays out buttons using the activities array
+  // TODO: in v2, adds form for additional buttons
   var message = makeButtons();
   render(message, "#button-land");
 }
@@ -75,7 +70,7 @@ const makeImageElement = (stillURL, animatedURL) => {
 const processResponse = (response) => {
   // takes API response object and makes URLs for display on page
   console.log("in processResponse()");
-  const message = [];
+  let message = [];
   for (var i = 0; i < 10; i++) {
     console.log("making URLs");
     const stillURL = response.data[i].images.fixed_height_still.url;
@@ -86,6 +81,7 @@ const processResponse = (response) => {
     console.log("newHTML is " + newHTML);
     message.push(newHTML);
   }
+  message = makeImageDisplay(message);
   console.log("before calling render, message is" + message);
   render(message, "#gify-land", 'empty');
 }
