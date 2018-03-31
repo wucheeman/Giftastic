@@ -17,7 +17,7 @@
     (x) first pass
     (x) cleaned up
 [x] app displays ratings of GIF 
-[] round 1 test results and bug fixes
+[x] round 1 test results and bug fixes
 [] app provides form for user input and creates new button
 [] app enables new button; retrieves GIFs and displays them appropriately.
 [] round 2 test results and bug fixes
