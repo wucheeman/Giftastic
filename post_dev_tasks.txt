@@ -22,4 +22,5 @@ Submit Homework
 [] Add comment on changes from Requirements.
 [] Add other comments
   () limitation: does not reject non-words comprised only of letters
-  app does note that nothing came back from search
+  app does note that nothing came back from searchoes note that nothing came back from search
+  () pressing enter to submit a new activity is not supported
