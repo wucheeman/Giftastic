@@ -39,13 +39,13 @@
       // takes an array of gifs and converts to a bootstrap row of images
       const newRow = `
           <div class="row">
-            <div class="col-sm-4 mb-3">
+            <div class="col-sm-4 mb-3 img-fluid imgRow">
               ${gifs[0]}
             </div>
-            <div class="col-sm-4 mb-3">
+            <div class="col-sm-4 mb-3 img-fluid imgRow">
               ${gifs[1]}
             </div>
-            <div class="col-sm-4 mb-3">
+            <div class="col-sm-4 mb-3 img-fluid imgRow">
               ${gifs[2]}
             </div>
           </div>
