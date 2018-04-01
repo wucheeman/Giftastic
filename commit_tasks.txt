@@ -18,12 +18,14 @@
     (x) cleaned up
 [x] app displays ratings of GIF 
 [x] round 1 test results and bug fixes
-[] app provides form for user input and creates new button
-[] app enables new button; retrieves GIFs and displays them appropriately.
+[x] app provides form for user input and creates new button
+[x] app enables new button; retrieves GIFs and displays them appropriately.
+   (x) - change type from 'submit' to 'button'
+   (x) - text needs to clear
+   (x) - buttons refresh when second button is added, not repeat
+   (x) - button needs to retrieve gifs when clicked
 [] round 2 test results and bug fixes
 [] beautify page to match homework demos
     () gutters between all images
-
------ Assess time remaining; pick bonus tasks and add if feasible ----
-
-[] week 6 exercise 13 and later are good and directly on target for the homework.
+    () new button form and warning in separate row
+    () buttons match video

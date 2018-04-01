@@ -10,8 +10,49 @@ let activities;
 
 // FUNCTIONS
 // ==============================================================
+
+const addButton = (newActivity) => {
+  // adds a new button based on user's input
+  // normalizes input t whitespace
+  // does not add empty strings or repeats
+  console.log("in addButton()");
+  newActivity = cleanInput(newActivity);
+  if (checkForDupsOrEmptyString(newActivity)) {
+    console.log('ok to make a button');
+    activities.push(newActivity);
+    console.log(activities);
+    // clear text input
+    $('#button-input').val('');
+    // initializeDisplay();
+    var imgElements = makeButtons();
+    render(imgElements, "#button-land", 'empty');
+    alert('new button has been added');
+  }
+  else {
+    // TODO: give warning in page, not in alert
+    alert("Not a new activity!");
+  }
+}
+
+const checkForDupsOrEmptyString = (newActivity) => {
+  let userInputIsGood = true;
+  // checks for duplicates or empty strng and returns false if one is found
+  if (activities.includes(newActivity) || newActivity === "") {
+    userInputIsGood = false;
+  }
+  return userInputIsGood;
+}
+
+const cleanInput = (newActivity) => {
+  // cleans and normalizes input for new buttons
+  console.log("in cleanInput()");
+  return newActivity.trim().toLowerCase();
+
+}
+
 const clickHandler = (e) => {
   console.log("in clickHandler");
+  // TODO: refactor to use switch (future?)
   console.log(e.target);
   console.log(e);
   if (e.target.className === 'activity') {
@@ -25,6 +66,12 @@ const clickHandler = (e) => {
     const element = $(e.target);
     console.log('in clickHandler: element = ' + element);
     toggleGif(element);
+  }
+  else if (e.target.className === 'add-activity') {
+    e.defaultPrevented;
+    var newActivity = $("#button-input").val();
+    console.log('newActivity is: ' + newActivity);
+    addButton(newActivity);
   }
   else {
     console.log('not supposed to get here in clickHandler');
@@ -46,9 +93,9 @@ const initializeDisplay = () => {
 const main = () => {
   // initializes globals and display
   // enables app by calling $(document).on("click", clickHandler); to start processing
-  console.log('Started');
-  initializeGlobals();
-  initializeDisplay();
+  console.log('in main()');
+  // initializeGlobals();
+  // initializeDisplay();
   $(document).on("click", clickHandler);
 }
 
@@ -158,8 +205,11 @@ const toggleGif = (element) => {
 // GAME
 //===============================================================
 
-$(document).ready(function() {
+// $(document).ready(function() {
+  console.log('Started');
+  initializeGlobals();
+  initializeDisplay();
   main();
-});
+// });
 
 

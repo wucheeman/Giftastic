@@ -41,6 +41,9 @@ version 2 additional functionality
 [] Empty strings or repeats aren't added to the array of buttons
 [] Leading/trailing whitespace is removed from user input
 [] User input normalized to lower case (title case?)
+[] Text input clears after submission
+[] Button display refreshes properly after multiple buttons added
+[] New button retrieves gifs when clicked
 
 
 Display
