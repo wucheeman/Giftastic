@@ -5,9 +5,6 @@
 
 let activities;
 
-// GLOBAL OBJECTS
-//===============================================================
-
 // FUNCTIONS
 // ==============================================================
 
@@ -37,6 +34,7 @@ const addButton = (newActivity) => {
 }
 
 const checkForBadChars = (newActivity) => {
+  // rejects user input if it includes non-alphabetic characters
   let userInputIsGood = true;
   //regex for any non-alphabetic lower case letters
   const re = /[^a-z]/;
@@ -47,12 +45,22 @@ const checkForBadChars = (newActivity) => {
 }
 
 const checkForDupsOrEmptyString = (newActivity) => {
-  let userInputIsGood = true;
   // checks for duplicates or empty strng and returns false if one is found
+  let userInputIsGood = true;
   if (activities.includes(newActivity) || newActivity === "") {
     userInputIsGood = false;
   }
   return userInputIsGood;
+}
+
+const checkResponseForGifs = (response) => {
+  console.log('in checkResponseForGifs()');
+  let responseHasGifs = true;
+  if (response.data.length === 0) {
+    console.log('no data in response');
+    responseHasGifs = false;
+  }
+  return responseHasGifs;
 }
 
 const cleanInput = (newActivity) => {
@@ -102,11 +110,10 @@ const initializeDisplay = () => {
 }
 
 const main = () => {
-  // initializes globals and display
-  // enables app by calling $(document).on("click", clickHandler); to start processing
+  // initializes globals and display; enables app to begin taking user clicks
   console.log('in main()');
-  // initializeGlobals();
-  // initializeDisplay();
+  initializeGlobals();
+  initializeDisplay();
   $(document).on("click", clickHandler);
 }
 
@@ -132,27 +139,35 @@ const makeRatingElement = (rating) => {
 const processResponse = (response) => {
   // takes API response object and makes URLs for display on page
   console.log("in processResponse()");
-  let imgElements = [];
-  let ratingsElements = [];
-  for (var i = 0; i < 10; i++) {
-    console.log("making URLs");
-    const stillURL = response.data[i].images.fixed_height_still.url;
-    console.log('stillURL is ' + stillURL);
-    const animatedURL = response.data[i].images.fixed_height.url;
-    console.log("animatedURL is " + animatedURL);
-    const newImageHtml = makeImageElement(stillURL, animatedURL);
-    console.log("newImageHtml is " + newImageHtml);
-    imgElements.push(newImageHtml);
-    const rating = response.data[i].rating;
-    console.log('rating is: ' + rating);
-    const newRatingElement = makeRatingElement(rating);
-    console.log("new rating element is " + newRatingElement);
-    ratingsElements.push(newRatingElement);
+  if (checkResponseForGifs(response)) {
+    console.log('response has gifs');
+    let imgElements = [];
+    let ratingsElements = [];
+    for (var i = 0; i < 10; i++) {
+      console.log("making URLs");
+      const stillURL = response.data[i].images.fixed_height_still.url;
+      console.log('stillURL is ' + stillURL);
+      const animatedURL = response.data[i].images.fixed_height.url;
+      console.log("animatedURL is " + animatedURL);
+      const newImageHtml = makeImageElement(stillURL, animatedURL);
+      console.log("newImageHtml is " + newImageHtml);
+      imgElements.push(newImageHtml);
+      const rating = response.data[i].rating;
+      console.log('rating is: ' + rating);
+      const newRatingElement = makeRatingElement(rating);
+      console.log("new rating element is " + newRatingElement);
+      ratingsElements.push(newRatingElement);
+    }
+    // add ratingsElements to display; requires work in image_display.js
+    imgElements = makeImageDisplay(imgElements, ratingsElements);
+    console.log("before calling render, imgElements is" + imgElements);
+    render(imgElements, "#gify-land", 'empty');
   }
-  // add ratingsElements to display; requires work in image_display.js
-  imgElements = makeImageDisplay(imgElements, ratingsElements);
-  console.log("before calling render, imgElements is" + imgElements);
-  render(imgElements, "#gify-land", 'empty');
+  else {
+    //  TODO: move alert to warning on page
+    console.log('No gifs were returned from that search');
+    alert('No gifs were returned from that search');
+  }
 }
 
 const render = (imgElements, location, action) => {
@@ -216,11 +231,9 @@ const toggleGif = (element) => {
 // GAME
 //===============================================================
 
-// $(document).ready(function() {
+$(document).ready(function() {
   console.log('Started');
-  initializeGlobals();
-  initializeDisplay();
   main();
-// });
+});
 
 

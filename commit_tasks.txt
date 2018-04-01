@@ -27,7 +27,7 @@
 [x] round 2 test results
 [-] bug fixes
     (x) input rejected if non-alphabetic characters found
-    () app is silent when no gifs returned from search
+    (x) app gives alert when no gifs returned from search
     () app leaves old gifs up when no new gifs return
 [] beautify page to match homework demos
     () gutters between all images
