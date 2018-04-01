@@ -20,7 +20,8 @@ Submit Homework
 [] Provide link to GitHub Pages in BCS
 [] Provide link to updated portfolio in the comments section of your homework.
 [] Add comment on changes from Requirements.
-[] Add other comments
+[] Add other comments; the following tasks are left for a future update
   () limitation: does not reject non-words comprised only of letters
   app does note that nothing came back from searchoes note that nothing came back from search
   () pressing enter to submit a new activity is not supported
+  () app does not filter repeats, which are infrequent, but Giphy does send them
