@@ -20,12 +20,17 @@
 [x] round 1 test results and bug fixes
 [x] app provides form for user input and creates new button
 [x] app enables new button; retrieves GIFs and displays them appropriately.
-   (x) - change type from 'submit' to 'button'
-   (x) - text needs to clear
-   (x) - buttons refresh when second button is added, not repeat
-   (x) - button needs to retrieve gifs when clicked
-[] round 2 test results and bug fixes
+   (x) change type from 'submit' to 'button'
+   (x) text needs to clear
+   (x) buttons refresh when second button is added, not repeat
+   (x) button needs to retrieve gifs when clicked
+[x] round 2 test results
+[-] bug fixes
+    (x) input rejected if non-alphabetic characters found
+    () app is silent when no gifs returned from search
+    () app leaves old gifs up when no new gifs return
 [] beautify page to match homework demos
     () gutters between all images
     () new button form and warning in separate row
     () buttons match video
+    () alerts removed/page shows warning text

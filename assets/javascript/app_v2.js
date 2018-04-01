@@ -17,7 +17,7 @@ const addButton = (newActivity) => {
   // does not add empty strings or repeats
   console.log("in addButton()");
   newActivity = cleanInput(newActivity);
-  if (checkForDupsOrEmptyString(newActivity)) {
+  if (checkForDupsOrEmptyString(newActivity) && checkForBadChars(newActivity)) {
     console.log('ok to make a button');
     activities.push(newActivity);
     console.log(activities);
@@ -30,8 +30,20 @@ const addButton = (newActivity) => {
   }
   else {
     // TODO: give warning in page, not in alert
+    console.log('Input must be only letters')
     alert("Not a new activity!");
+    $('#button-input').val('');
   }
+}
+
+const checkForBadChars = (newActivity) => {
+  let userInputIsGood = true;
+  //regex for any non-alphabetic lower case letters
+  const re = /[^a-z]/;
+  if (newActivity.search(re) > -1) {
+    userInputIsGood = false;
+  }
+  return userInputIsGood;
 }
 
 const checkForDupsOrEmptyString = (newActivity) => {
@@ -47,7 +59,6 @@ const cleanInput = (newActivity) => {
   // cleans and normalizes input for new buttons
   console.log("in cleanInput()");
   return newActivity.trim().toLowerCase();
-
 }
 
 const clickHandler = (e) => {
