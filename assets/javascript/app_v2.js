@@ -12,6 +12,7 @@ const addButton = (newActivity) => {
   // adds a new button based on user's input
   // normalizes input t whitespace
   // does not add empty strings or repeats
+  // TODO (future): should reject non-words comprised only of letters
   console.log("in addButton()");
   newActivity = cleanInput(newActivity);
   if (checkForDupsOrEmptyString(newActivity) && checkForBadChars(newActivity)) {
@@ -23,13 +24,16 @@ const addButton = (newActivity) => {
     // initializeDisplay();
     var imgElements = makeButtons();
     render(imgElements, "#button-land", 'empty');
-    alert('new button has been added');
+    $('#warning-land').addClass('text-success text-center');
+    $('#warning-land').html('<strong>new button has been added</strong>');
+    clearWarningLand();
   }
   else {
-    // TODO: give warning in page, not in alert
     console.log('Input must be only letters')
-    alert("Not a new activity!");
+    $('#warning-land').addClass('text-danger text-center');
+    $('#warning-land').html("<strong>Not a new activity!</strong>");
     $('#button-input').val('');
+    clearWarningLand();
   }
 }
 
@@ -67,6 +71,12 @@ const cleanInput = (newActivity) => {
   // cleans and normalizes input for new buttons
   console.log("in cleanInput()");
   return newActivity.trim().toLowerCase();
+}
+
+const clearWarningLand = () => {
+  setTimeout(() => {
+    render([], "#warning-land", 'empty');
+  }, 3000);
 }
 
 const clickHandler = (e) => {
@@ -165,10 +175,11 @@ const processResponse = (response) => {
     render(imgElements, "#gify-land", 'empty');
   }
   else {
-    //  TODO: move alert to warning on page
     console.log('No gifs were returned from that search');
-    alert('No gifs were returned from that search');
+    $('#warning-land').addClass('text-danger text-center');
+    $('#warning-land').html("<strong>No gifs were returned from that search!</strong>")
     render([], "#gify-land", 'empty');
+    clearWarningLand();
   }
 }
 

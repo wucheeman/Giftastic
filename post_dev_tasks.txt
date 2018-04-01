@@ -21,3 +21,5 @@ Submit Homework
 [] Provide link to updated portfolio in the comments section of your homework.
 [] Add comment on changes from Requirements.
 [] Add other comments
+  () limitation: does not reject non-words comprised only of letters
+  app does note that nothing came back from search
