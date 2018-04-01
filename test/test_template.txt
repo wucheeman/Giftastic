@@ -21,7 +21,6 @@ version 2:
 [] All functionality in v1 + ...
 [] form that takes user input and adds new button to the set
 
-
 Bonus
 =====
 [] App is fully mobile responsive
@@ -47,19 +46,18 @@ version 2 additional functionality
 [] New button retrieves gifs when clicked
 [] Page does not reload when data are put in form and enter is pressed
 
-
 Display
 =======
 [] Page closely resembles demo video
-
-
-GitHub Pages
-============
-[] Page performs on load as expected
-[] Page performs after reload as expected
 
 Cleanup
 =======
 [] HTML validates
 [] CSS validates
 [] JS delinted (stretch)
+
+GitHub Pages
+============
+[] Page performs on load as expected
+[] Page performs after reload as expected
+

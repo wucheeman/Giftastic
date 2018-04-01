@@ -36,4 +36,4 @@
     (x) alerts removed/page shows warning text
 [x] page does not reload when enter is pressed after putting text in form
 [x] Cleaned up TODOs and console.logs; ran ESLint
-[] final test results before posting on GitHub Pages
+[x] final test results before posting on GitHub Pages
