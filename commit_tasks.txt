@@ -25,12 +25,14 @@
    (x) buttons refresh when second button is added, not repeat
    (x) button needs to retrieve gifs when clicked
 [x] round 2 test results
-[-] bug fixes
+[x] bug fixes
     (x) input rejected if non-alphabetic characters found
     (x) app gives alert when no gifs returned from search
-    () app leaves old gifs up when no new gifs return
+    (x) app removes old gifs when no new gifs return
 [] beautify page to match homework demos
     () gutters between all images
     () new button form and warning in separate row
     () buttons match video
     () alerts removed/page shows warning text
+[] Cleaned up TODOs and console.logs
+[] final test results before posting on GitHub Pages

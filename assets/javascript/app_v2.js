@@ -167,6 +167,7 @@ const processResponse = (response) => {
     //  TODO: move alert to warning on page
     console.log('No gifs were returned from that search');
     alert('No gifs were returned from that search');
+    render([], "#gify-land", 'empty');
   }
 }
 
@@ -198,7 +199,6 @@ function search(search) {
     });
 }
 
-// TODO
 const toggleGif = (element) => {
   // toggles gif between static image and animated when gif is clicked
   console.log("in toggleGif");
@@ -228,7 +228,7 @@ const toggleGif = (element) => {
   // });
 }
 
-// GAME
+// APPLICATION
 //===============================================================
 
 $(document).ready(function() {
