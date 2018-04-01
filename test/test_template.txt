@@ -2,6 +2,7 @@ TEST TEMPLATE - GIFTASTIC
 
 d = deferred
 e = met by enhancement
+f = failed
 p = passed
 w = waiting for further work
 
