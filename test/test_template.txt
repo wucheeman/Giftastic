@@ -45,6 +45,7 @@ version 2 additional functionality
 [] Text input clears after submission
 [] Button display refreshes properly after multiple buttons added
 [] New button retrieves gifs when clicked
+[] Page does not reload when data are put in form and enter is pressed
 
 
 Display
