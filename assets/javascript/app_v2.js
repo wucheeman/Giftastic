@@ -74,7 +74,7 @@ const clickHandler = (e) => {
   // TODO: refactor to use switch (future?)
   console.log(e.target);
   console.log(e);
-  if (e.target.className === 'activity') {
+  if (e.target.className === 'btn btn-info mr-2 mb-2 activity') {
     console.log('found a button!');
     // call api and display the gifs
     console.log(e.target.id);
@@ -117,11 +117,12 @@ const main = () => {
   $(document).on("click", clickHandler);
 }
 
+// btn-info mr-2 mb-2 
 const makeButtons = () => {
   var imgElements = 0;
   var buttons = [];
   for (var i = 0; i < activities.length; i++ ) {
-    var button = `<button class="activity" id=${activities[i]}>${activities[i]}</button>`;
+    var button = `<button class="btn btn-info mr-2 mb-2 activity" id=${activities[i]}>${activities[i]}</button>`;
     buttons.push(button);
   }
   return buttons;

@@ -30,9 +30,9 @@
     (x) app gives alert when no gifs returned from search
     (x) app removes old gifs when no new gifs return
 [] beautify page to match homework demos
-    () gutters between all images
+    (x) gutters between all images
     (x) new form button and warning in separate row, with good margins
-    () buttons match video
+    (x) buttons match video
     () alerts removed/page shows warning text
 [] page does not reload when enter is pressed after putting text in form
 [] Cleaned up TODOs and console.logs
