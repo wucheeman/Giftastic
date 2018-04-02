@@ -1,0 +1,64 @@
+TEST TEMPLATE - GIFTASTIC
+
+d = deferred
+e = met by enhancement
+f = failed
+p = passed
+s = skipped
+w = waiting for further work
+
+Requirements
+============
+version 1:
+[p] query URL is https
+[p] app creates a set of buttons in the HTML
+[p] when clicked, page gets 10 static gifs from GIPHY and places them on the page
+[p] when a static image is clicked, it animates.
+[p] when an animated image is clicked, it stops playing. (note: it may take a "few" clicks to make this happen)
+[p] rating of image (obtained from GIPHY) is displayed above each gif.
+[p] all buttons behave as expected
+
+version 2:
+[p] All functionality in v1 + ...
+[p] form that takes user input and adds new button to the set
+
+Bonus
+=====
+[d] App is fully mobile responsive
+[d] App enables users to add an additional 10 GIFs to page. Original gifs remain on page.
+[d] App lists additional metadata for each gif in clean/readable format
+[d] App enables 1-click download for each gif across device types.
+[d] App is integrated with a second API and data are displayed creatively.
+[d] Enable users to add favorite gifs to a 'favorites' section that persists during a single user session. (That is, it does not survive reload.)
+[d] Enable favorites to persist across reload.
+
+Functionality
+=============
+[p] Game initializes globals correctly
+[p] Game reinitializes globals correctly
+[p] Correct HTML is generated dynamically
+
+version 2 additional functionality
+[p] Empty strings or repeats aren't added to the array of buttons
+[p] Leading/trailing whitespace is removed from user input
+[p] User input normalized to lower case
+[p] Text input clears after submission
+[p] Button display refreshes properly after multiple buttons added
+[p] New button retrieves gifs when clicked
+[p] Page does not reload when data are put in form and enter is pressed
+
+Display
+=======
+[p] Page closely resembles demo video
+
+Cleanup
+=======
+[s] HTML validates
+[s] CSS validates
+[s] JS delinted (stretch)
+
+GitHub Pages
+============
+[p] Page performs on load as expected
+[p] Page performs after reload as expected
+
